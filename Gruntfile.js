@@ -1,13 +1,17 @@
-module.exports = grunt => {
+module.exports = function (grunt) {
 
     //Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        watch: {
+            files: ['<%= jshint.all %>'],
+            task: ['jshint']
+        },
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
             },
-            all: ['src/*.js']
+            all: ['src/*.js', 'Gruntfile.js']
         },
         uglify: {
             options: {
@@ -35,9 +39,9 @@ module.exports = grunt => {
             }
         }
     });
-
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify:build', 'uglify:builda']);
+    grunt.registerTask('default', ['jshint', 'uglify:build', 'uglify:builda', 'watch']);
 }
