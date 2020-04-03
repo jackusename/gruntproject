@@ -1,0 +1,10 @@
+{
+  "asi": true, // 是否禁止缺少分号警告
+  "loopfunc": true, // 是否禁止函数内部循环
+  "node": true, // 该文件是否为 node.js 文件
+  "curly": true, // 代码块是否必须使用大括号
+  "eqeqeq": false, // 是否使用 "===" 表示相等，"!==" 表示不等
+  "eqnull": false, // 是否禁止使用 "== null" 比较
+  "undef": true, // 是否指定变量必须先声明后使用
+  "strict": false // 是否禁止使用严格模式
+}
